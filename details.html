@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Decker Records</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
+
+        <!-- Imports 2 fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Pacifico|Rubik:500" rel="stylesheet">
+
+        <!-- Used for responsive images -->
+        <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
+    </head>
+    <body>
+
+        <!-- Header/Navbar -->
+        <nav>
+            <span><a href="menu.html">&laquo;</a></span>
+            <span>Details</span>
+            <span>&nbsp;</span>
+        </nav>
+
+        <!-- Empty list -->
+        <main>
+            <ul id="item"></ul>
+        </main>
+        
+        <!-- Script to populate the list with data from the JSON file -->
+        <script>
+            let xmlhttp = new XMLHttpRequest(),
+                url = "Decker.JSON";
+              
+            xmlhttp.onreadystatechange = function() {
+
+                if ( xmlhttp.readyState === 4 && xmlhttp.status === 200 ) {
+
+                    var menuItems = JSON.parse( xmlhttp.responseText );
+                    buildItem( menuItems );
+
+                }
+
+            };
+
+            xmlhttp.open( "GET", url, true );
+            xmlhttp.send();
+            
+            function buildItem( items ) {
+                var output = "",
+                    selectedID = localStorage.getItem( "selected" );
+              
+                items.forEach( function( item ) {
+
+                    if ( selectedID == item.id ) {
+
+                        output =  "<li class='item'>" +
+                                      "<h3>" + item.album + "</h3>" + 
+                                      "<img class='pic' src=assets/img/" + item.artwork +" />" +
+                                      "<p>Artist: " + item.artist + "</p>" + 
+                                      "<p>Genre: " + item.genre + "</p>" + 
+                                      "<p>Media Type: " + item.type + "</p>" + 
+                                  "</li>";
+
+                    } else if ( selectedID == "") {
+
+                        output =  "<li class='item'>" +
+                                      "<h3>Album Name</h3>" + 
+                                      "<p>Album Artwork</p>" + 
+                                      "<p>Artist: Artist</p>" + 
+                                      "<p>Genre: Genre</p>" + 
+                                      "<p>Media Type: Type</p>" + 
+                                  "</li>";
+                                  
+                    }
+                });
+              
+                document.getElementById( "item" ).innerHTML = output;
+
+            } // Ends buildItem
+        </script>
+
+    </body>
+</html>

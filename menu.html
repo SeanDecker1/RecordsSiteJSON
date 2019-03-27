@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Decker's Records</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
+
+        <!-- Imports 2 fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Pacifico|Rubik:500" rel="stylesheet">
+
+        <!-- Used for responsive images -->
+        <script>document.cookie='resolution='+Math.max(screen.width,screen.height)+'; path=/';</script>
+    </head>
+    <body>
+
+        <!-- Header/Navbar -->
+        <nav>
+            <span>&nbsp;</span>
+            <span>Albums</span>
+            <span>&nbsp;</span>
+        </nav>
+
+        <!-- Empty list -->
+        <main>
+            <ul id="menu_items"></ul>
+        </main>
+        
+        <!-- Script to populate list with data from the JSON file -->
+        <script>
+            let xhr = new XMLHttpRequest(),
+                url = "Decker.JSON";
+            
+            xhr.onreadystatechange = function() {
+
+                if ( xhr.readyState === 4 && xhr.status === 200 ) {
+
+                    var menuItems = JSON.parse( xhr.responseText );
+                    buildMenu( menuItems );
+
+                }
+            };
+
+            xhr.open( "GET", url, true );
+            xhr.send();
+            
+            function buildMenu( items ) {
+
+                var output = "";
+                
+                items.forEach( function( item ) {
+
+                    output += "<li class='item'" + "onclick=saveSelection(" + item.id + ");> " +
+                                  "<img src=assets/img/" + item.artwork + " />" + 
+                                  "<p>" + item.album + "</p>" +
+                              "</li>"
+
+                    // Adds a divider unless item is the last item in the list
+                    if( item !== items[ items.length-1 ] ) {
+                        output += "<hr />";
+                    }
+
+                });
+                
+                document.getElementById( "menu_items" ).innerHTML = output;
+
+            } // Ends buildMenu
+            
+            function saveSelection( sel ) {
+
+                localStorage.setItem( "selected", sel );
+                window.open( "details.html", "_self" );
+
+            } // Ends saveSelection
+        </script>
+
+    </body>
+</html>

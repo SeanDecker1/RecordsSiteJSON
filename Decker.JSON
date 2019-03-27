@@ -1,0 +1,82 @@
+[
+  {
+      "id":         0,
+      "album":      "One More Light",
+      "artist":     "Linkin Park",
+      "genre":      "Pop",
+      "type":       "Vinyl",
+      "artwork":    "oml.png"
+  },
+  {
+      "id":         1,
+      "album":      "Homesick",
+      "artist":     "A Day To Remember",
+      "genre":      "Pop Punk",
+      "type":       "Vinyl",
+      "artwork":    "homesick.png"
+  },
+  {
+      "id":         2,
+      "album":      "Amo",
+      "artist":     "Bring Me The Horizon",
+      "genre":      "Rock",
+      "type":       "CD",
+      "artwork":    "amo.png"
+  },
+  {
+      "id":         3,
+      "album":      "Collide With The Sky",
+      "artist":     "Peirce The Veil",
+      "genre":      "Post-Hardcore",
+      "type":       "CD",
+      "artwork":    "collide.png"
+  },
+  {
+      "id":         4,
+      "album":      "The Peace And The Panic",
+      "artist":     "Neck Deep",
+      "genre":      "Pop Punk",
+      "type":       "Vinyl",
+      "artwork":    "peace.png"
+  },
+  {
+      "id":         5,
+      "album":      "Deadweight",
+      "artist":     "Wage War",
+      "genre":      "Metalcore",
+      "type":       "CD",
+      "artwork":    "deadweight.png"
+  },
+  {
+      "id":         6,
+      "album":      "Post Traumatic",
+      "artist":     "Mike Shinoda",
+      "genre":      "Alternative",
+      "type":       "Vinyl",
+      "artwork":    "pt.png"
+  },
+  {
+      "id":         7,
+      "album":      "Disease",
+      "artist":     "Beartooth",
+      "genre":      "Rock",
+      "type":       "Vinyl",
+      "artwork":    "disease.png"
+  },
+  {
+      "id":         8,
+      "album":      "Identity Crisis",
+      "artist":     "WSTR",
+      "genre":      "Pop Punk",
+      "type":       "CD",
+      "artwork":    "identity.png"
+  },
+  {
+      "id":         9,
+      "album":      "blink-182",
+      "artist":     "blink-182",
+      "genre":      "Pop Punk",
+      "type":       "Vinyl",
+      "artwork":    "blink.png"
+  }
+]
